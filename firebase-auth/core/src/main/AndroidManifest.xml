@@ -18,7 +18,7 @@
         <activity
             android:name="org.microg.gms.firebase.auth.ReCaptchaActivity"
             android:exported="false"
-            android:process=":ui"
+
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert.NoActionBar" />
     </application>
 </manifest>

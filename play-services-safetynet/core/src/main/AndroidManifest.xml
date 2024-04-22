@@ -16,7 +16,7 @@
             android:name="org.microg.gms.safetynet.ReCaptchaActivity"
             android:autoRemoveFromRecents="true"
             android:icon="@drawable/ic_recaptcha"
-            android:process=":ui"
+
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.Dialog.NoActionBar">
             <intent-filter>

@@ -13,7 +13,7 @@
             android:name=".DroidGuardService"
             android:enabled="true"
             android:exported="true"
-            android:process="com.google.android.gms.unstable">
+            >
             <intent-filter>
                 <action android:name="com.google.android.gms.droidguard.service.INIT" />
                 <action android:name="com.google.android.gms.droidguard.service.PING" />

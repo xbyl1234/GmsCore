@@ -14,20 +14,20 @@
 
         <service
             android:name="org.microg.gms.nearby.exposurenotification.ScannerService"
-            android:process=":persistent" />
+            />
         <service
             android:name="org.microg.gms.nearby.exposurenotification.AdvertiserService"
-            android:process=":persistent" />
+            />
         <service
             android:name="org.microg.gms.nearby.exposurenotification.CleanupService"
-            android:process=":persistent" />
+            />
         <service
             android:name="org.microg.gms.nearby.exposurenotification.NotifyService"
-            android:process=":persistent" />
+            />
 
         <service
             android:name="org.microg.gms.nearby.exposurenotification.ExposureNotificationService"
-            android:process=":persistent"
+
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.android.gms.nearby.exposurenotification.START" />
@@ -36,7 +36,7 @@
 
         <receiver
             android:name="org.microg.gms.nearby.exposurenotification.ServiceTrigger"
-            android:process=":persistent"
+
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -59,7 +59,7 @@
         <activity
             android:name="org.microg.gms.nearby.exposurenotification.ui.ExposureNotificationsConfirmActivity"
             android:exported="false"
-            android:process=":ui"
+
             android:theme="@style/Theme.AppCompat.DayNight.Dialog.Alert.NoActionBar">
             <intent-filter>
                 <action android:name="org.microg.gms.nearby.exposurenotification.CONFIRM" />
@@ -68,7 +68,7 @@
         <activity
             android:name="org.microg.gms.nearby.exposurenotification.ui.ExposureNotificationsSettingsActivity"
             android:exported="false"
-            android:process=":ui"
+
             android:theme="@style/Theme.AppCompat.DayNight">
             <intent-filter android:priority="-100">
                 <action android:name="com.google.android.gms.settings.EXPOSURE_NOTIFICATION_SETTINGS" />

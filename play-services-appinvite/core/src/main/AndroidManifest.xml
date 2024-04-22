@@ -19,7 +19,7 @@
         <activity
             android:name="org.microg.gms.appinivite.AppInviteActivity"
             android:excludeFromRecents="true"
-            android:process=":ui"
+
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.Dialog.NoActionBar">
             <intent-filter

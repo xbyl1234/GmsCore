@@ -292,7 +292,7 @@
 
         <receiver
             android:name="org.microg.gms.gcm.SendReceiver"
-            android:process=":persistent">
+            >
             <intent-filter>
                 <action android:name="com.google.android.gcm.intent.SEND" />
             </intent-filter>
@@ -300,11 +300,11 @@
 
         <receiver
             android:name="org.microg.gms.gcm.ServiceInfoReceiver"
-            android:process=":persistent" />
+            />
 
         <receiver
             android:name="org.microg.gms.gcm.TriggerReceiver"
-            android:process=":persistent">
+            >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.AIRPLANE_MODE" />
@@ -327,7 +327,7 @@
 
         <receiver
             android:name="org.microg.gms.gcm.UnregisterReceiver"
-            android:process=":persistent">
+            >
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_DATA_CLEARED" />
                 <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />
@@ -398,7 +398,7 @@
             android:name="org.microg.tools.AccountPickerActivity"
             android:excludeFromRecents="true"
             android:exported="true"
-            android:process=":ui"
+
             android:theme="@style/Theme.App.DayNight.Dialog.Alert.NoActionBar">
             <intent-filter>
                 <action android:name="com.google.android.gms.common.account.CHOOSE_ACCOUNT" />
@@ -411,7 +411,7 @@
             android:name="org.microg.gms.auth.login.LoginActivity"
             android:configChanges="keyboardHidden|keyboard|orientation|screenSize"
             android:exported="true"
-            android:process=":ui"
+
             android:theme="@style/Theme.LoginBlue">
             <intent-filter>
                 <action android:name="com.google.android.gms.auth.login.LOGIN" />
@@ -424,7 +424,7 @@
             android:name="org.microg.gms.auth.AskPermissionActivity"
             android:excludeFromRecents="true"
             android:exported="true"
-            android:process=":ui"
+
             android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
 
         <service
@@ -434,7 +434,7 @@
         <activity
             android:name=".auth.TokenActivity"
             android:exported="true"
-            android:process=":ui" />
+            />
 
         <provider
             android:name="org.microg.gms.auth.AccountContentProvider"
@@ -443,7 +443,7 @@
 
         <activity
             android:name="org.microg.gms.auth.credentials.CredentialPickerActivity"
-            android:process=":ui">
+            >
             <intent-filter>
                 <action android:name="com.google.android.gms.auth.api.credentials.PICKER" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -477,7 +477,7 @@
         <activity
             android:name="org.microg.gms.auth.signin.AuthSignInActivity"
             android:theme="@style/Theme.App.DayNight.Dialog.Alert.NoActionBar"
-            android:process=":ui"
+
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.android.gms.auth.GOOGLE_SIGN_IN" />
@@ -511,7 +511,7 @@
 
         <activity
             android:name="org.microg.gms.auth.consent.ConsentSignInActivity"
-            android:process=":ui"
+
             android:exported="false"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
 
@@ -521,12 +521,12 @@
             android:name="org.microg.gms.games.GamesSignInActivity"
             android:enabled="true"
             android:exported="false"
-            android:process=":ui"
+
             android:theme="@style/Theme.App.Translucent"/>
 
         <activity
             android:name="org.microg.gms.games.UpgradeActivity"
-            android:process=":ui"
+
             android:theme="@style/Theme.AppCompat.DayNight.Dialog">
             <intent-filter>
                 <action android:name="com.google.android.gms.games.PLAY_GAMES_UPGRADE" />
@@ -573,7 +573,7 @@
             android:name="org.microg.gms.ui.MainSettingsActivity"
             android:icon="@mipmap/ic_app_settings"
             android:label="@string/gms_settings_name"
-            android:process=":ui"
+
             android:roundIcon="@mipmap/ic_app_settings"
             android:taskAffinity="org.microg.gms.settings">
             <intent-filter>
@@ -602,7 +602,7 @@
             android:icon="@mipmap/ic_app_settings"
             android:label="@string/gms_settings_name"
             android:roundIcon="@mipmap/ic_app_settings"
-            android:process=":ui"
+
             android:targetActivity="org.microg.gms.ui.MainSettingsActivity"
             android:taskAffinity="org.microg.gms.settings">
             <intent-filter>
@@ -616,7 +616,7 @@
             android:name="org.microg.gms.ui.SettingsDashboardActivity"
             android:icon="@mipmap/ic_app_settings"
             android:label="Legacy microG Settings"
-            android:process=":ui"
+
             android:roundIcon="@mipmap/ic_app_settings"
             android:taskAffinity="org.microg.gms.settings" />
 
@@ -625,7 +625,7 @@
             android:name="org.microg.gms.ui.SettingsActivityLink"
             android:icon="@mipmap/ic_app_settings"
             android:label="@string/gms_settings_name"
-            android:process=":ui"
+
             android:targetActivity="org.microg.gms.ui.MainSettingsActivity"
             android:taskAffinity="org.microg.gms.settings">
             <intent-filter>
@@ -646,7 +646,7 @@
         <!-- microG Settings activity-alias for Google settings compatibility -->
         <activity-alias
             android:name="com.google.android.gms.app.settings.GoogleSettingsLink"
-            android:process=":ui"
+
             android:exported="true"
             android:targetActivity="org.microg.gms.ui.MainSettingsActivity"
             android:taskAffinity="org.microg.gms.settings">
@@ -655,24 +655,24 @@
         <activity
             android:name="org.microg.gms.ui.AskPushPermission"
             android:excludeFromRecents="true"
-            android:process=":ui"
+
             android:theme="@style/Theme.App.DayNight.Dialog.Alert.NoActionBar" />
 
         <activity
             android:name="org.microg.gms.ui.GoogleMoreFragment$AsActivity"
             android:label="@string/gms_settings_name"
-            android:process=":ui"
+
             android:taskAffinity="org.microg.gms.settings" />
 
         <activity
             android:name="org.microg.gms.ui.SelfCheckFragment$AsActivity"
             android:label="@string/self_check_title"
-            android:process=":ui"
+
             android:taskAffinity="org.microg.gms.settings" />
 
         <activity
             android:name="org.microg.gms.accountsettings.ui.MainActivity"
-            android:process=":ui"
+
             android:exported="false"
             android:taskAffinity="org.microg.gms.settings"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -688,7 +688,7 @@
 
         <activity
             android:name="org.microg.gms.accountsettings.ui.LoaderActivity"
-            android:process=":ui"
+
             android:exported="true"
             android:excludeFromRecents="true"
             android:theme="@style/Theme.App.DayNight.Dialog.Alert.NoActionBar">
@@ -706,7 +706,7 @@
 
         <activity
             android:name="org.microg.gms.ui.LocationSettingsActivity"
-            android:process=":ui"
+
             android:taskAffinity="org.microg.gms.settings">
             <intent-filter>
                 <action android:name="com.google.android.gms.location.settings.LOCATION_HISTORY" />
@@ -743,7 +743,7 @@
 
         <activity
             android:name="org.microg.gms.googlehelp.ui.GoogleHelpRedirectActivity"
-            android:process=":ui"
+
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:exported="true">
             <intent-filter>
