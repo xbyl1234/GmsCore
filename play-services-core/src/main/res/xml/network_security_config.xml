@@ -10,4 +10,10 @@
         <domain includeSubdomains="true">cdwifi.cz</domain>
         <domain includeSubdomains="true">hsp.hotsplots.net</domain>
     </domain-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
 </network-security-config>
