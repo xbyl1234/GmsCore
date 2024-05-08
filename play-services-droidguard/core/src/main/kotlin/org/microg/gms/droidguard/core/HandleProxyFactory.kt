@@ -6,6 +6,7 @@
 package org.microg.gms.droidguard.core
 
 import android.content.Context
+import android.util.Log
 import com.android.volley.NetworkResponse
 import com.android.volley.RequestQueue
 import com.android.volley.VolleyError
@@ -116,16 +117,19 @@ class HandleProxyFactory(private val context: Context) {
     fun fetchFromServer(flow: String?, request: Request): Triple<String, ByteArray, ByteArray> {
         ProfileManager.ensureInitialized(context)
         val future = RequestFuture.newFuture<SignedResponse>()
+        var signed: SignedResponse? = null
         queue.add(object : VolleyRequest<SignedResponse>(Method.POST, SERVER_URL, future) {
             override fun parseNetworkResponse(response: NetworkResponse): VolleyResponse<SignedResponse> {
                 return try {
-                    VolleyResponse.success(SignedResponse.ADAPTER.decode(response.data), null)
+                    signed = SignedResponse.ADAPTER.decode(response.data)
+                    VolleyResponse.success(signed, null)
                 } catch (e: Exception) {
                     VolleyResponse.error(VolleyError(e))
                 }
             }
 
             override fun deliverResponse(response: SignedResponse) {
+                signed = response
                 future.onResponse(response)
             }
 
@@ -139,9 +143,14 @@ class HandleProxyFactory(private val context: Context) {
                 )
             }
         })
-        val signed: SignedResponse = future.get()
-        val response = signed.unpack()
-        val vmKey = response.vmChecksum!!.hex()
+
+        Log.i("", "-------sig get!")
+        while (signed==null){
+            Log.i("", "-------wait")
+            Thread.sleep(200)
+        }
+        val response = signed?.unpack()
+        val vmKey = response?.vmChecksum!!.hex()
         if (!isValidCache(vmKey)) {
             val temp = File(getCacheDir(), "${UUID.randomUUID()}.apk")
             temp.parentFile!!.mkdirs()
