@@ -171,6 +171,17 @@
 
         <library android:name="com.google.android.gms" />
 
+        <activity
+            android:name="test.LoginActivity"
+            android:configChanges="keyboardHidden|keyboard|orientation|screenSize"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.login.LOGIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <!-- Provision -->
 
         <service

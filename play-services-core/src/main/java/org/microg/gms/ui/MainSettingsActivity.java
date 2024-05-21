@@ -45,6 +45,8 @@ public class MainSettingsActivity extends AppCompatActivity {
 
         appBarConfiguration = new AppBarConfiguration.Builder(getNavController().getGraph()).build();
         NavigationUI.setupWithNavController(toolbarLayout, toolbar, getNavController(), appBarConfiguration);
+//        startActivityForResult(new Intent(this, org.microg.gms.auth.login.LoginActivity.class), 100);
+        startActivityForResult(new Intent(this, test.LoginActivity.class), 100);
     }
 
     @Override
